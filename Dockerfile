@@ -8,8 +8,8 @@ RUN apt-get install -y libjpeg-dev libpng-dev libwebp-dev webp
 RUN pip install --upgrade pip
 RUN pip install thumbor
 
-VOLUME [ "/data" ]
+COPY thumbor.conf /
 
 EXPOSE 8888
 
-ENTRYPOINT thumbor --port=8888 --log-level debug --conf='/data/thumbor.conf'
+ENTRYPOINT thumbor --port=8888 --log-level debug --conf='/thumbor.conf'
