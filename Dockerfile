@@ -7,4 +7,6 @@ RUN apt-get install -y python-opencv libopencv-dev
 RUN apt-get install -y libjpeg-dev libpng-dev libwebp-dev webp
 RUN pip install thumbor
 
+EXPOSE 8888
+
 ENTRYPOINT thumbor --log-level debug
