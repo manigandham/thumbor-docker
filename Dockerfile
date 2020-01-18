@@ -1,5 +1,10 @@
-FROM python:2
+FROM ubuntu:16.04
 
-RUN git clone git://github.com/thumbor/thumbor.git
-RUN cd thumbor
-RUN python setup.py install
+RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install -y python-pip
+RUN apt-get install -y libcurl4-openssl-dev libssl-dev
+RUN apt-get install -y python-opencv libopencv-dev
+RUN apt-get install -y libjpeg-dev libpng-dev libwebp-dev webp
+RUN pip install thumbor
+
+ENTRYPOINT thumbor --log-level debug
